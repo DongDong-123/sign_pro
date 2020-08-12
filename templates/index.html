@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>login</title>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/event_manage/">Guest Manage System</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/event_manage/">发布会</a></li>
+            <li ><a href="/guest_manage/">嘉宾</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+        <!-- 导航栏 end-->
+<div class="container" style="padding-top: 80px">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="/login" method="post" style="margin-top: 200px">
+                {% csrf_token %}
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">UserName</label>
+                <input type="text"  name="username" class="form-control" id="exampleInputEmail1" placeholder="username">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">PassWord</label>
+                <input type="password" class="form-control" id="exampleInputPassword1"  name="password"  placeholder="Password">
+              </div>
+                <br>
+                    {{ error }}<br>
+              <button type="submit" class="btn btn-default" style="float: right">登录</button>
+            </form>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
